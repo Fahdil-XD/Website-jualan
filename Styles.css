@@ -1,0 +1,303 @@
+  /* Reset & base styles */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    background: #121212;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #eee;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  button {
+    cursor: pointer;
+    border: none;
+    background-color: #ff3c00;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #e03500;
+  }
+
+  /* Header */
+  header {
+    background: #111111;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  header h1 {
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    color: #fff;
+    margin: 0;
+  }
+  /* Navigation styles */
+  nav {
+    display: flex;
+    gap: 30px;
+  }
+  nav a {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  nav a:hover,
+  nav a:focus {
+    background-color: #ff3c00;
+    color: #121212;
+    outline: none;
+  }
+
+  /* Main content */
+  main {
+    padding: 30px 40px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  main h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #ff3c00;
+  }
+
+  /* Product grid */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+    gap: 30px;
+  }
+
+  article.product-card {
+    background: #1f1f1f;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 6px 18px rgba(255,60,0,0.3);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+  }
+  article.product-card:hover {
+    transform: scale(1.05);
+  }
+  .product-image {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 15px;
+  }
+  .product-image img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    height: 180px;
+    filter: drop-shadow(0 0 6px #ff3c00);
+  }
+
+  .product-info {
+    flex-grow: 1;
+  }
+  .product-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+  .product-price {
+    color: #ff7a45;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  .product-description {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 15px;
+  }
+
+  /* Cart button */
+  .add-cart-btn {
+    align-self: center;
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  /* Cart Sidebar */
+  #cart-sidebar {
+    position: fixed;
+    right: -350px;
+    top: 0;
+    width: 350px;
+    height: 100vh;
+    background: #1f1f1f;
+    box-shadow: -3px 0 15px rgba(255,60,0,0.6);
+    z-index: 20;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    transition: right 0.4s ease;
+  }
+  #cart-sidebar.open {
+    right: 0;
+  }
+  #cart-sidebar h3 {
+    color: #ff3c00;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+  #cart-items {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 15px;
+  }
+  .cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 12px;
+  }
+  .cart-item img {
+    width: 50px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-right: 12px;
+    filter: drop-shadow(0 0 3px #ff3c00);
+  }
+  .cart-item-info {
+    flex-grow: 1;
+  }
+  .cart-item-name {
+    font-weight: 600;
+    margin: 0 0 4px;
+  }
+  .cart-item-price {
+    font-size: 0.9rem;
+    color: #ff7a45;
+  }
+  #cart-total {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #ff7a45;
+  }
+  #close-cart-btn {
+    align-self: center;
+    background: #444;
+    padding: 8px 14px;
+    border-radius: 6px;
+  }
+  #close-cart-btn:hover {
+    background: #ff3c00;
+    color: #111;
+  }
+
+  /* Cart item control buttons */
+  .cart-remove-btn, .cart-add-btn {
+    background-color: transparent;
+    color: #ff3c00;
+    font-weight: 700;
+    font-size: 22px;
+    width: 30px;
+    height: 30px;
+    line-height: 22px;
+    padding: 0;
+    margin-left: 8px;
+    border-radius: 4px;
+    border: 2px solid #ff3c00;
+    user-select: none;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .cart-remove-btn:hover, .cart-add-btn:hover {
+    background-color: #ff3c00;
+    color: #111;
+  }
+
+  /* Cart toggle button */
+  #cart-toggle-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: #ff3c00;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    color: #fff;
+    font-size: 26px;
+    font-weight: 700;
+    box-shadow: 0 6px 18px rgba(255,60,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 25;
+    transition: background-color 0.3s ease;
+  }
+  #cart-toggle-btn:hover {
+    background: #e03500;
+  }
+
+  /* Footer */
+  footer {
+    background: #1f1f1f;
+    color: #aaa;
+    text-align: center;
+    padding: 20px 40px;
+    font-size: 0.9rem;
+    margin-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+  }
+  footer .footer-text {
+    flex: 1 1 100%;
+    color: #666;
+    font-size: 0.85rem;
+  }
+  footer .social-links {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    justify-content: center;
+  }
+  footer .social-links a {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    fill: #ff3c00;
+    transition: fill 0.3s ease;
+  }
+  footer .social-links a:hover {
+    fill: #ff7a45;
+  }
+  footer .email-link {
+    color: #ff3c00;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  footer .email-link:hover {
+    color: #ff7a45;
+    text-decoration: underline;
+  }
+
